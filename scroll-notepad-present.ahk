@@ -17,7 +17,7 @@ if not (A_IsAdmin or RegExMatch(full_command_line, " /restart(?!\S)"))
 
 SetTitleMatchMode, 2
 ; Define the target window title (Google Chrome)
-targetTitle := "Dashboard"
+targetTitle := "Visual"
 
 ; Main loop
 ; Loop
@@ -51,12 +51,13 @@ targetTitle := "Dashboard"
       ;   ControlSend, , WheelDown, ahk_class Notepad++
         ; ControlClick,Scintilla1, ahk_class Notepad++,,WheelUp
 
-        ControlClick,Chrome_RenderWidgetHostHWND1, ahk_exe Notion.exe,,WheelUp
         ControlClick,Chrome_RenderWidgetHostHWND2, ahk_exe Notion.exe,,WheelUp
+        ControlClick,Chrome_RenderWidgetHostHWND1, ahk_exe Notion.exe,,WheelUp
+        ; ControlClick,Chrome_RenderWidgetHostHWND2, ahk_exe Notion.exe,,WheelUp
+        
+        SetKeyDelay, 10, 10
+        ControlSend, Chrome_RenderWidgetHostHWND1, ^p, ahk_exe Notion.exe
 
-        ; ControlClick,Chrome_RenderWidgetHostHWND2, ahk_exe msedge.exe,,WheelUp
-      ;   ControlClick,, aahk_pid 20544,,WheelUp
-      ;   ControlSend,WheelUp, ahk_pid 20544
     }
     Return
 ; }
